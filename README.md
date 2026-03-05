@@ -1,79 +1,59 @@
-# 💎 IOS Backup Explorer (IBE)
+# 🚀 Tech Stack
+- **Framework**: Electron + React
+- **Build System**: Vite
+- **Database**: better-sqlite3 (native bindings for Manifest.db parsing)
+- **Plist Engines**: plist (XML) & bplist-parser (Binary)
+- **UI & Icons**: Vanilla CSS (Premium Dark Theme) + Lucide Icons
 
-## IOS Backup Explorer is a cutting-edge Windows desktop application designed to navigate, explore, and edit iOS/iPadOS backups (iOS 10+). Built with a focus on speed, security, and a premium user experience.
+## 📦 Executables
+Located in `release/`:
 
-🚀 Tech Stack
-Framework: Electron + React
+| File | Type | Size |
+|------|------|------|
+| IOS Backup Explorer 0.0.0.exe | Portable (no install needed) | ~84 MB |
+| IOS Backup Explorer Setup 0.0.0.exe | NSIS Installer (with shortcuts) | ~84 MB |
 
-Build System: Vite
+## ✨ Features Implemented
 
-Database: better-sqlite3 (native bindings for Manifest.db parsing)
+### 📱 Backup Discovery
+- Auto-detects iTunes/Finder backups from `%APPDATA%\Apple Computer\MobileSync\Backup` and the newer `%APPDATA%\Apple\MobileSync\Backup`
+- Shows device name, product model, iOS version, last backup date, encryption status
+- Manual folder selector for backups not in standard locations
 
-Plist Engines: plist (XML) & bplist-parser (Binary)
+### 🗂️ Virtual File System Explorer
+- Recursive navigation through domain subfolders (e.g., Media/DCIM/100APPLE)
+- Breadcrumb navigation with clickable segments
+- Subfolder icons and "Open Folder" actions in detail panel
+- Enhanced Sidebar Categories with smart grouping of data:
+  - **Communications**: Photos, WhatsApp, Messages
+  - **Browsing**: Safari History & Data
+  - **System**: Notes, Contacts, Call History, Keychains, Preferences
 
-UI & Icons: Vanilla CSS (Premium Dark Theme) + Lucide Icons
+### ✏️ Plist Editor
+- Full interactive tree editor for both XML and Binary .plist files (using bplist-parser)
+- Click any value to edit inline; supports string, number, boolean types
+- Saves back to the physical file AND updates Manifest.db to keep the backup consistent
 
-✨ Features Implemented
-📱 Backup Discovery
-Auto-detection: Automatically scans iTunes/Finder backups from:
+### 🔒 Encryption & Security
+- Detection of Encrypted Backups: The application identifies if a backup is encrypted (Manifest.plist) and displays a clear message
+- ABI & SQL Fixes: Resolved the "file is not a database" error and the SqliteError by aligning the Electron ABI and fixing the SQL syntax
+- Binary Plist Support: Integrated bplist-parser for reading device information and manifest files
 
-%APPDATA%\Apple Computer\MobileSync\Backup
+### 🌎 Settings & Localization
+- Full i18n: Support for both English and French languages
+- Settings Panel: Centralized modal to switch themes and languages with persistence
+- Dynamic Themes: Dark, Light, and OLED modes with persistent user preference storage
 
-%APPDATA%\Apple\MobileSync\Backup
+### 🎨 UI & UX
+- Custom dark theme with glassmorphism elements
+- Inter + Fira Code fonts
+- Custom frameless titlebar with breadcrumb navigation and window controls
+- Premium Exit Flow: Clicking the close button triggers a beautiful, non-blocking "IBE is closing..." overlay with a glassmorphism effect and a smooth scale-up animation
+- Unrecognized File Types: Files of unknown types display a subtle "File with Question Mark" icon instead of a generic folder or file icon
+- Strict distinction between folders and files during navigation
 
-Metadata Display: Shows device name, product model, iOS version, last backup date, and encryption status.
+### 🖼️ Image Preview
+- Inline preview of HEIC, JPEG, PNG images directly in the detail panel
 
-Manual Selector: Support for backups located in non-standard folders via a manual directory picker.
-
-🗂️ Virtual File System Explorer
-Recursive Navigation: Explore domain subfolders (e.g., Media/DCIM/100APPLE).
-
-Smart Sidebar Categories: Data is grouped for faster discovery:
-
-Communications: Photos, WhatsApp, Messages.
-
-Browsing: Safari History & Data.
-
-System: Notes, Contacts, Call History, Keychains, Preferences.
-
-Breadcrumb Navigation: Clickable segments for seamless folder switching.
-
-✏️ Plist Editor
-Interactive Tree Editor: Supports both XML and Binary .plist files.
-
-Inline Editing: Click any value to edit strings, numbers, or booleans directly.
-
-Data Consistency: Saves changes to the physical file and automatically updates the Manifest.db to keep the backup valid.
-
-🌎 Settings & Localization
-Full i18n: Complete support for both English and French languages.
-
-Settings Panel: Centralized modal to switch themes and languages with persistent storage.
-
-Dynamic Themes: Toggle between Dark, Light, and OLED modes with intuitive Sun/Moon icons.
-
-🖼️ Preview & Export
-Image Preview: Inline support for HEIC, JPEG, and PNG files directly in the detail panel.
-
-Native Export: Export any file to disk via the standard Windows Save dialog.
-
-🔒 Security & Technical Notes
-Encryption Support
-Detection: The application correctly identifies if a backup is encrypted via Manifest.plist.
-
-> [!WARNING]
-> Note: Encrypted backups are not supported at this time. A clear message is displayed if encryption is detected.
-
-Architecture
-UI/UX: Frameless custom titlebar with integrated breadcrumbs and window controls.
-
-Visuals: Custom dark theme featuring glassmorphism elements, using Inter and Fira Code fonts.
-
-Branding: Features the official IBE Logo for the application icon and interface.
-
-📦 Executables
-Located in the release/ folder:
-
-File	Type	Size
-IOS Backup Explorer 0.0.0.exe	Portable (no install needed)	~84 MB
-IOS Backup Explorer Setup 0.0.0.exe	NSIS Installer (with shortcuts)	~84 MB
+### 📤 Export
+- Export any file to disk via native Save dialog
