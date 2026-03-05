@@ -1,4 +1,4 @@
-# 🚀 Tech Stack
+# IBE - IOS Backup Explorer
 - **Framework**: Electron + React
 - **Build System**: Vite
 - **Database**: better-sqlite3 (native bindings for Manifest.db parsing)
