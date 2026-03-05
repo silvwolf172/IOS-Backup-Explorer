@@ -1,5 +1,6 @@
-💎 IOS Backup Explorer (IBE) 
-IOS Backup Explorer is a cutting-edge Windows desktop application designed to navigate, explore, and edit iOS/iPadOS backups (iOS 10+). Built with a focus on speed, security, and a premium user experience.
+# 💎 IOS Backup Explorer (IBE)
+
+## IOS Backup Explorer is a cutting-edge Windows desktop application designed to navigate, explore, and edit iOS/iPadOS backups (iOS 10+). Built with a focus on speed, security, and a premium user experience.
 
 🚀 Tech Stack
 Framework: Electron + React
@@ -60,8 +61,8 @@ Native Export: Export any file to disk via the standard Windows Save dialog.
 Encryption Support
 Detection: The application correctly identifies if a backup is encrypted via Manifest.plist.
 
-[!WARNING]
-Note: Encrypted backups are not supported at this time. A clear message is displayed if encryption is detected.
+> [!WARNING]
+> Note: Encrypted backups are not supported at this time. A clear message is displayed if encryption is detected.
 
 Architecture
 UI/UX: Frameless custom titlebar with integrated breadcrumbs and window controls.
